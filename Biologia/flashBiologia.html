@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/avif" href="../zMisc/N.png"/>
+    <title>Flashcard</title>
+</head>
+<body>
+    <div class="container">
+
+     <div class="cabeçalho">
+        <h1>Bem-vindo aos flashcards!</h1>
+        <h2>Então oque vai ser hoje?</h2>
+        <button id="addBtn" class="addBtn">Adicionar Flashcard</button> <!--botão para adicionar flashcards via js-->
+        <a href="pagBiologia.html"><button class="voltar">Voltar</button></a>
+        <button id="modalInfo">Oque é um flashcard?</button> 
+     </div>
+     <div id="modalContent">
+        <p>Flashcards são, como o próprio nome diz, cartões rápidos que servem para revisar o conteùdo e reforçar o aprendizado. 
+            Cada cartão possui uma pergunta na frente e a resposta no verso.</p>
+     </div>
+<!-- ---------------------------------------------- -->
+<div id="flashcards" class="flashcards">
+    <div class="flashcard">
+    <div class="front">
+        <textarea class="textarea" disabled placeholder="Pergunta"></textarea>
+        <div class="btn">
+        <button class="flipBtn">Mostrar verso</button>
+        <button class="delBtn">DELETAR</button>
+        <button class="editBtnFrt">EDITAR</button>
+        </div>
+    </div>
+    <div class="back" style="display:none;">
+        <textarea disabled placeholder="Resposta"></textarea>
+        <div class="btn">
+        <button class="flipBtn">Mostrar frente</button>
+        <button class="editBtnVrs">EDITAR</button>
+        </div>
+    </div>
+    </div>
+    </div>
+</div> <!-- Container para os flashcards que serão adicionados via JS -->
+</body>
+</html>
+
+<!-- ======================================================================== -->
+
+<style>
+
+body {
+    display: flex; 
+    justify-content: center;
+    min-height: 50vh;
+    user-select: none;
+    background-color:rgb(138, 12, 71) ;
+}
+.flashcard{
+    position: relative;
+    padding: 3em;
+    background-color: aqua;
+    width: 35em;
+    overflow-y: auto; /* rolagem só nos cards */
+    margin-top: 20px;
+}
+ .flashcards button {
+    flex: 1;
+    max-width: 120px;
+    margin:0;
+}
+ .front, .back {
+    width: 100%;
+    padding: 0;
+    background: none; 
+}
+.container{ /*engloba toda a página (parte verde)*/
+    background-color: lightgreen;
+    padding: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 86vh;
+    max-width: 60em;
+    overflow-y: auto;
+}
+.cabeçalho { /*Parte do titulo (rosa)*/
+    background-color: rgb(225, 23, 243);
+    text-align: center;
+    margin-bottom: 2em;
+    padding: 3em;
+    min-width: 50em;
+}
+textarea {
+    border: none;
+    width: 95%;
+    height: 8em;
+    padding: 10px;
+    font-size: 2pc; 
+    background-color: white;
+    resize: none;
+}
+textarea:focus {
+    outline: none;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+textarea:disabled { background-color: lightgray; cursor: not-allowed;}
+button{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    height: 2em;
+    color: white;
+}
+#modalInfo {background-color: teal; background-color: aqua;}
+#modalInfo:hover {background-color: darkcyan; background-color: deepskyblue;}
+#modalContent {
+    display: none;
+    padding: 5px;
+    border: 2px solid teal;
+    background-color: lightcyan;
+    max-width: 40em;
+}
+.btn {
+    display: flex;/* coloca lado a lado */ 
+    justify-content: center;/* centraliza no card */ 
+    align-items: center;
+    gap: 10px;/* espaço entre botões */
+    margin-top: 10px; /* separa do textarea */ 
+}
+#modalContent, textarea, .container, .flashcard,.cabeçalho {border-radius: 18px;}
+.delBtn          {background-color: red;}
+.delBtn:hover    {background-color: darkred;}
+.addBtn          {background-color: green;}
+.addBtn:hover    {background-color: darkgreen;}
+.voltar          {background-color: blue;}
+.voltar:hover    {background-color: darkblue;}
+.editBtnFrt      {background-color: orange; }
+.editBtnFrt:hover{background-color: darkorange; }
+.editBtnVrs      {background-color: orange; }
+.editBtnVrs:hover{background-color: darkorange; }
+.flipBtn         {background-color: purple;}
+.flipBtn:hover   {background-color: rgb(83, 1, 83);}
+
+</style>
+
+<!-- ======================================================================== -->
+
+<script>
+// funcão para adicionar flashcards implementada direto no botão de adicionar
+document.getElementById("addBtn").addEventListener('click', () => { 
+    const card = document.createElement('div');
+    card.classList.add('flashcard');
+    card.innerHTML = `
+    <div class="front">
+        <textarea class="textarea" disabled placeholder="Pergunta"></textarea>
+        <div class="btn">
+        <button class="flipBtn">Mostrar verso</button>
+        <button class="delBtn">DELETAR</button>
+        <button class="editBtnFrt">EDITAR</button>
+        </div>
+    </div>
+    <div class="back" style="display:none;">
+        <textarea disabled placeholder="Resposta"></textarea>
+        <div class="btn">
+        <button class="flipBtn">Mostrar frente</button>
+        <button class="editBtnVrs">EDITAR</button>
+        </div>
+    </div>`;
+// adiciona ao container
+    document.getElementById("flashcards").appendChild(card);
+})
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delBtn")) {
+        e.target.closest(".flashcard").remove(); // remove o flashcard inteiro
+    }
+    if (e.target.classList.contains("editBtnFrt") || e.target.classList.contains("editBtnVrs")) {
+    const face = e.target.closest(".front, .back");
+      const textarea = face?.querySelector("textarea");
+        if (textarea) {
+      const isDisabled = textarea.disabled;
+      textarea.disabled = !isDisabled;
+      e.target.textContent = isDisabled ? "SALVAR" : "EDITAR";
+      if (!isDisabled) textarea.focus();
+    }
+}
+     if (e.target.classList.contains("flipBtn")) {
+        const flashcard = e.target.closest(".flashcard");
+        const front = flashcard.querySelector(".front");
+        const back = flashcard.querySelector(".back");
+        const isFrontVisible = front.style.display !== "none";
+        front.style.display = isFrontVisible ? "none" : "block";
+        back.style.display = isFrontVisible ? "block" : "none";
+    }
+});
+// Modal de informação sobre flashcards
+document.getElementById("modalInfo").addEventListener('click', () => { 
+    const modal = document.getElementById("modalContent");
+    if (modal.style.display === "block") { modal.style.display = "none"; } else {modal.style.display = "block"}
+});
+
+
+</script>

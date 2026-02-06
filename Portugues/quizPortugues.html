@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="icon" type="image/avif" href="../zMisc/N.png"/>
+</head>
+<body>
+ <div class="container" id="container">
+    <div class="temp">-<span id="temp">50:00</span>-</div>
+    <div id="modalTempo" class="modal">
+        <div class="modal content">
+            <h1>!Tempo Esgotado!</h1>
+            <p>Você não conseguio responder a tempo..</p>
+        </div>
+    </div>
+    <div class="disciplina" id="pergunta">Pergunta</div>
+    <div style="padding: 20px;"></div> <!-- Espaçamento entre pergunta e respostas -->
+    <div class="respostas" id="respDiv">
+    <button class="respostaA resposta" id="respostaA">A</button>
+    <button class="respostaB resposta" id="respostaB">B</button>
+    <button class="respostaC resposta" id="respostaC">C</button>
+    <button class="respostaD resposta" id="respostaD">D</button>
+  </div><button class="fuga" onclick="window.location.href='pagPortugues.html'">Desistencia</button>
+ </div>
+ <script src="quizPortugues.js"></script>
+</body>
+</html>
+<!-- ======================================================================== -->
+<style>
+
+body {
+    gap:20px;    
+    min-height: 50px;
+    user-select: none; /*para o usuario não poder selecionar nada*/
+    background-color: lime;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.disciplina { /*Enunciado (parte  vermelho claro)*/
+    align-items: center;
+    justify-content: center;
+    height: 450px;
+    width: 700px;
+    margin-bottom: 30px;
+    background-color: #ff6347;
+    font-size: 2em;
+    color: blue;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.respostas { /*div das respostas (parte laranja)*/
+    background-color: orange;
+    flex-wrap: wrap; /* permite quebrar linha */
+    justify-content: space-evenly;
+    text-align: center;
+    width: 1300px; /* largura fixa para controlar alinhamento */
+    height: 500px;
+    gap: 20px;
+}
+.respostaA, .respostaB, .respostaC, .respostaD {
+    /*todas as divs de alternativas (parte violeta)*/
+    border: 2px solid black;
+    margin: 10px; /*margem para design harmonico*/
+    padding: 15px;
+    height: 190px;
+    width: 450px;
+    font-size: 2rem;
+    background-color: rgb(193, 99, 221);
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container { /*parte que engloba todo o site (parte bege)*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #deb887;
+    width: 1500px;
+    min-height: 1000px; /* altura fixa para não encolher */
+}
+.temp {
+    background-color: #3f60f3;
+    border-radius: 20%; /*deixa o design mais armonico*/
+    font-size: 3rem; /*aumento da fonte para maior visibilidade*/
+    margin: 20px 0; /*margem para design harmonico*/
+    color: #330033;
+}
+.fuga {
+    cursor: pointer;
+    background-color: #f33f3f;
+    border:ridge gray;
+    border-radius: 20%; /*deixa o design mais armonico*/
+    font-size: 2rem; /*aumento da fonte para maior visibilidade*/
+    margin: 20px 0; /*margem para design harmonico*/
+    color: #330033;
+}
+.fuga:hover{
+    background-color: #330033;
+    color: #f33f3f;
+}
+button {border-radius: 8px; font-size: 4rem; cursor: pointer;}
+button:disabled {background-color: gray; cursor: not-allowed;border: none;}
+button:disabled:hover {background-color: gray; color: gray;}
+.resposta:hover{background-color: rgb(183, 53, 223);}
+.disciplina, .respostas, .container,.respostaA, .respostaB, .respostaC, .respostaD{display:flex;}
+</style>

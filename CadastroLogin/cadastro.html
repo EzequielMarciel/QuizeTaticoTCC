@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/avif" href="../zMisc/N.png"/>
+  <title>Cadastro</title>
+</head>
+<body>
+  <div class="container">
+    <h1>----------Cadastro-----------</h1>
+    <hr style="width: 20pc;"> <!-- traveção apenas para estilização-->
+    <div class="cadastro" id="cadastro"> 
+      <form id="cadastroForm">
+        <input type="text"     id="nome"  placeholder="Nome" required><br>
+        <input type="email"    id="email" placeholder="Email" required><br>
+        <input type="password" id="senha" placeholder="senha" required><br>
+        <button type="submit" id="submitBtn">Cadastrar</button>
+      </form>
+    </div>
+    <hr style="width:20pc;">
+    Já com conta? <a href="login.html">Entre!</a>
+  </div>
+
+  <div id="perfil"></div>
+
+  <script type="module" src="cadastro.js"></script>
+</body>
+</html>
+
+<style>
+body {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px; height: 350px;
+    background-color: rgb(76, 162, 233);
+    padding: 60px;
+    border-radius: 18px;
+    border: rgb(206, 66, 94) 4px solid;
+}
+.cadastro {padding: 0px;}
+#cadastroForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+input, button {
+    width: 250px;
+    height: 25px;
+    border-radius: 8px;
+}
+button{cursor: pointer;}
+#submitBtn {
+    cursor: pointer;
+    color: lightgreen;
+    background-color: rebeccapurple;
+}
+#perfil {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(76, 162, 233);
+    padding: 60px;
+    border-radius: 18px;
+    border: rgb(206, 66, 94) 4px solid;
+    font-size: larger;
+}
+</style>

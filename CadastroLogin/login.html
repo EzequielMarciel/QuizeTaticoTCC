@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/avif" href="../zMisc/N.png"/>
+  <title>Login</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+  <hr style="width: 20pc;margin-bottom: 2pc;">
+    <form id="loginForm">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" placeholder="E-mail" required><br>
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" placeholder="Senha" required><br>
+  <hr style="width: 20pc;margin-top: 2pc;">
+      <button type="submit">Entrar</button>
+    </form>
+      Sem conta? <a href="cadastro.html">Cadastre-se!</a>
+  </div>
+
+  <div id="info"></div>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>
+
+<style>
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+.container {
+  background: #76a2e9;
+  padding: 40px;
+  border-radius: 12px;
+  border: 3px solid #ce425e;
+  text-align: center;
+}
+input, button {
+  margin: 8px;
+  padding: 8px;
+  border-radius: 6px;
+}
+button {
+  cursor: pointer;
+  background: darkgreen;
+  color: white;
+}
+#info{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #76a2e9;
+    padding: 60px;
+    border-radius: 18px;
+    border: 3px solid #ce425e;
+}
+</style>

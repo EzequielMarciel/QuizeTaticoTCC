@@ -1,0 +1,42 @@
+body{
+    user-select: none;
+    margin: 0;
+    background-color: aqua;
+}
+.container {justify-content: center;padding: 5em;/*engloba toda a página (parte azul)*/}
+.pagina { /*engloba todo o conteudo (parte cinza)*/
+    width: 40em; /*tamanho da página*/
+    padding: 13em; /*encnhimento da página*/
+    height: 70vh; /*altura da página*/
+    background-color: lightblue;
+    flex-direction: column;/*elemento chave para um site decente*/
+    align-items: center; /*centralização*/
+}
+.cabeçalho { /*parte principal (parte branco-azulado)*/
+    width: 55em; /*largura do cabeçalho*/
+    flex-direction: column; /*elemento chave para um site decente*/
+    align-items: center; /*centralização*/
+    text-align: center; /*centralização dos textos*/
+    gap: 3px;           /*margem para mais harmonia no design*/
+    padding: 3em;
+    background-color: lightcyan;
+}
+.disciplinas div {
+    color: white;   /*cor, para melhor visibilidade, dos textos dentro das divs*/
+    text-align: center;/*centralização dos textos*/
+    padding: 3em;    /*espaçamento interno das divs*/
+    background-color: blue;
+    width: 35em;     /*tamanho da div*/
+    height: 10em;    /*tamanho da div*/
+}
+.disciplinas div h3{
+    font-size: 2em;
+    display: flex;
+    align-items: start;/*centralização do nome da disciplina à esquerda da div*/
+}
+.disciplinas div button {width: 6em; height: 2em;} /* pequenas mudanças apartir daqui */
+button      { border-radius: 15px;cursor: pointer;padding: 5px;border-radius: 15px;}
+button:hover{background-color: lightgray;}
+hr          {width: 100%; border: 1px solid gray;}
+div         {border-radius: 15px;}
+.pagina,.cabeçalho,.container{display: flex;}

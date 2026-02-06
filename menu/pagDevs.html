@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenvolvedores</title>
+</head>
+<body>
+  <div class="desenvolvedores">
+    <div id="Ezequiel">
+      <abbr title=":D"><img src="../zMisc/EzequielCarvalho.jpeg" alt="Ezequiel Carvalho"></abbr>
+      <div class="texto">
+        <p>Aqui temos o Ezequiel Carvalho</p>
+        <p>Ele é o desenvolvedor do projeto, a ideia foi dele de criar este projeto</p>
+        <p>Dizem as más línguas que ele desenha bem</p>
+      </div>
+    </div>
+
+    <div id="Eduardo">
+      <div class="texto">
+        <p>Aqui temos o Eduardo Ludwig</p>
+        <p>Ele é o desenvolvedor do projeto e parente de Beethoven.</p>
+        <p>Há quem diga que ele ama o Grok</p>
+      </div>
+      <abbr title=":o"><img src="../zMisc/EduardoLudwig.jpeg" alt="Eduardo Ludwig"></abbr>
+    </div>
+  </div>
+</body>
+</html>
+    <style>
+        body{
+            background-color: black;
+            min-height: 100vh; /* ocupa toda a altura da tela */
+            margin: 0;
+
+            display: flex;              /* ativa flexbox */
+            justify-content: center;    /* centraliza horizontalmente */
+            align-items: center;        /* centraliza verticalmente */
+        }
+        img{
+            width: 100%;
+            height: 350px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        .desenvolvedores{
+            border: 1px solid goldenrod;
+            box-shadow: goldenrod 4px 8px 64px;
+
+            padding: 18px;
+            /* background-color: rgb(91, 17, 160); */
+            width: 60%;
+            border-radius: 15px;
+        }
+        .desenvolvedores div{
+            display: flex; /* coloca imagem e texto lado a lado */
+            align-items: center; /* centraliza verticalmente */
+            flex-wrap: wrap; /* permite quebra de linha em telas pequenas */
+            color: white;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 15px;
+        }
+        .texto{
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px; /* espaço entre texto e imagem */
+            text-align: left;
+        }
+        #Ezequiel {justify-content:flex-start; background: linear-gradient(to bottom left,  rgb(91, 17, 160), rgb(135, 206, 235));}
+        #Eduardo  {justify-content:flex-end; background: linear-gradient(to bottom right,  rgb(91, 17, 160), rgb(135, 206, 235));}
+    </style>
